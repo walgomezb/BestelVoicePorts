@@ -4,7 +4,8 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-
+# Install curl, ping, and any other needed packages
+RUN apt-get update && apt-get install -y curl iputils-ping && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /app
 COPY requirements.txt /app

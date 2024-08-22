@@ -3,7 +3,7 @@ import requests, json
 
 
 # JOBRUNNER_HOST = "192.168.68.113"
-JOBRUNNER_HOST = "bestelvoiceportsdemo_jobrunner"
+JOBRUNNER_HOST = "jobrunner"
 
 
 class BankCentralRouterManager:
@@ -178,9 +178,8 @@ class BankCentralRouterManager:
         password = centralRouter.get(b"pass").decode("utf-8")
         password = "Onbo@rd1NG#0ToUcH2024"
 
-        url = "http://"+JOBRUNNER_HOST+":9999/get_voice_ports"
+        url = "http://" + JOBRUNNER_HOST + ":5499/get_voice_ports"
 
-        
         headers = {"Content-Type": "application/json"}
         payload = {"target_ip": ip, "username": username, "password": password}
 
@@ -236,8 +235,7 @@ class BankCentralRouterManager:
         else:
             admin_status="no shutdown"
 
-        
-        url = "http://" + JOBRUNNER_HOST + ":9999/writeVoicePortConfig"
+        url = "http://" + JOBRUNNER_HOST + ":5499/writeVoicePortConfig"
         headers = {"Content-Type": "application/json"}
         payload = {
             "target_ip": ip,

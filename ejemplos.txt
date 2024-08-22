@@ -416,3 +416,6 @@ curl -X POST http://localhost:9299/saveVoicePortToRouter -H "Content-Type: appli
 create a front-end project based on angular, to create a user interface, firt get the User List from the BrokerUserManager service, consuming the BrokerUserManager api getAllUsers
 
 docker stack deploy -c docker-composeSwarm.yml bestelvoiceportsdemo
+docker stack rm bestelvoiceportsdemo
+
+docker service ls
