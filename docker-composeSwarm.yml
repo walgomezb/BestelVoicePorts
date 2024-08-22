@@ -15,7 +15,7 @@ services:
 
   bank_central_router_manager:
       build:
-        context: ../BestelVoicePorts
+        image: wagomez087/bank_central_router_manager
         dockerfile: DockerfileBankCentralRouterManager
       depends_on:
         - redis
