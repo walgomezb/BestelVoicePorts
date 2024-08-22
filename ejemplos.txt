@@ -1,0 +1,417 @@
+Certainly! Below are examples of `curl` requests for every route in the `broker_user_service.py` file.
+
+
+
+curl http://localhost:9099/getAllBrokers
+
+
+
+
+### Add a Broker
+
+**Endpoint**: `/addBroker`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"broker_name": "Broker One"}' http://localhost:9099/addBroker
+```
+
+### Update a Broker
+
+**Endpoint**: `/updateBroker`  
+**Method**: `PUT`
+
+```sh
+curl -X PUT -H "Content-Type: application/json" -d '{"broker_id": "1", "new_broker_name": "Updated Broker One"}' http://localhost:9099/updateBroker
+```
+
+### Add a User by Broker Name
+
+**Endpoint**: `/addUserByBrokerName`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"user_name": "Alice", "broker_name": "Broker One", "pass": "password123"}' http://localhost:9099/addUserByBrokerName
+```
+
+### Add a User by Broker ID
+
+**Endpoint**: `/addUserByBrokerId`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"user_name": "Bob", "broker_id": "1", "pass": "password123"}' http://localhost:9099/addUserByBrokerId
+```
+
+### Get Broker by ID
+
+**Endpoint**: `/getBroker/<brokerId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9099/getBroker/1
+```
+
+### Get User by ID
+
+**Endpoint**: `/getUser/<userId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9099/getUser/1
+```
+
+### Get Users by Broker ID
+
+**Endpoint**: `/getUsersByBroker/<brokerId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9099/getUsersByBroker/1
+```
+
+### Get Broker by Name
+
+**Endpoint**: `/getBrokerByName/<brokerName>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9099/getBrokerByName/Broker%20One
+```
+
+### Get User by Name
+
+**Endpoint**: `/getUserByName/<userName>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9099/getUserByName/Alice
+```
+
+### Summary of `curl` Requests
+
+1. **Add a Broker**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"broker_name": "Broker One"}' http://localhost:9099/addBroker
+   ```
+
+2. **Update a Broker**:
+   ```sh
+   curl -X PUT -H "Content-Type: application/json" -d '{"broker_id": "1", "new_broker_name": "Updated Broker One"}' http://localhost:9099/updateBroker
+   ```
+
+3. **Add a User by Broker Name**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"user_name": "Alice", "broker_name": "Broker One", "pass": "password123"}' http://localhost:9099/addUserByBrokerName
+   ```
+
+4. **Add a User by Broker ID**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"user_name": "Bob", "broker_id": "1", "pass": "password123"}' http://localhost:9099/addUserByBrokerId
+   ```
+
+5. **Get Broker by ID**:
+   ```sh
+   curl http://localhost:9099/getBroker/1
+   ```
+
+6. **Get User by ID**:
+   ```sh
+   curl http://localhost:9099/getUser/1
+   ```
+
+7. **Get Users by Broker ID**:
+   ```sh
+   curl http://localhost:9099/getUsersByBroker/1
+   ```
+
+8. **Get Broker by Name**:
+   ```sh
+   curl http://localhost:9099/getBrokerByName/Broker%20One
+   ```
+
+9. **Get User by Name**:
+   ```sh
+   curl http://localhost:9099/getUserByName/Alice
+   ```
+
+These `curl` requests cover all the routes in the `broker_user_service.py` file. You can use these commands to interact with the `BrokerUserManager` service running on `http://0.0.0.0:9099`.
+
+
+Certainly! Below are examples of `curl` requests for every route in the `bank_central_router_service.py` file.
+
+### Add a Bank
+
+**Endpoint**: `/addBank`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"bank_name": "Bank One"}' http://localhost:9299/addBank
+```
+
+### Update a Bank
+
+**Endpoint**: `/updateBank`  
+**Method**: `PUT`
+
+```sh
+curl -X PUT -H "Content-Type: application/json" -d '{"bank_id": "1", "new_bank_name": "Updated Bank One"}' http://localhost:9299/updateBank
+```
+
+### Add a Central Router by Bank ID
+
+**Endpoint**: `/addCentralRouterByBankId`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"central_router_name": "Central Router One", "bank_id": "1"}' http://localhost:9299/addCentralRouterByBankId
+```
+
+### Add a Central Router by Bank Name
+
+**Endpoint**: `/addCentralRouterByBankName`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"central_router_name": "Central Router Two", "bank_name": "Bank One"}' http://localhost:9299/addCentralRouterByBankName
+```
+
+### Update a Central Router
+
+**Endpoint**: `/updateCentralRouter`  
+**Method**: `PUT`
+
+```sh
+curl -X PUT -H "Content-Type: application/json" -d '{"central_router_id": "1", "new_central_router_name": "Updated Central Router One"}' http://localhost:9299/updateCentralRouter
+```
+
+### Add a Voice Port by Central Router ID
+
+**Endpoint**: `/addVoicePortByCentralRouterId`  
+**Method**: `POST`
+
+```sh
+curl -X POST -H "Content-Type: application/json" -d '{"voice_port_name": "Voice Port One", "central_router_id": "1", "broker_id": "1", "admin_status": "active", "input_gain": 10, "output_attenuation": 5, "operational_status": "operational", "description": "Main voice port"}' http://localhost:9299/addVoicePortByCentralRouterId
+```
+
+### Update a Voice Port
+
+**Endpoint**: `/updateVoicePort`  
+**Method**: `PUT`
+
+```sh
+curl -X PUT -H "Content-Type: application/json" -d '{"voice_port_id": "1", "new_voice_port_name": "Updated Voice Port One", "broker_id": "1", "admin_status": "inactive", "input_gain": 15, "output_attenuation": 10, "operational_status": "non-operational", "description": "Updated description"}' http://localhost:9299/updateVoicePort
+```
+
+### Get Bank by ID
+
+**Endpoint**: `/getBank/<bankId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getBank/1
+```
+
+### Get Bank by Name
+
+**Endpoint**: `/getBankByName/<bankName>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getBankByName/Bank%20One
+```
+
+### Get Central Router by ID
+
+**Endpoint**: `/getCentralRouter/<centralRouterId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getCentralRouter/1
+```
+
+### Get Central Router by Name
+
+**Endpoint**: `/getCentralRouterByName/<centralRouterName>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getCentralRouterByName/Central%20Router%20One
+```
+
+### Get Voice Port by ID
+
+**Endpoint**: `/getVoicePort/<voicePortId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getVoicePort/1
+```
+
+### Get Voice Port by Name
+
+**Endpoint**: `/getVoicePortByName/<voicePortName>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getVoicePortByName/Voice%20Port%20One
+```
+
+### Get Voice Ports by Central Router ID
+
+**Endpoint**: `/getVoicePortsByCentralRouter/<centralRouterId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getVoicePortsByCentralRouter/1
+```
+
+### Get Voice Ports by Central Router ID and Broker ID
+
+**Endpoint**: `/getVoicePortsByCentralRouterAndBroker/<centralRouterId>/<brokerId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getVoicePortsByCentralRouterAndBroker/1/1
+```
+
+### Get Central Routers by Bank ID
+
+**Endpoint**: `/getCentralRoutersByBank/<bankId>`  
+**Method**: `GET`
+
+```sh
+curl http://localhost:9299/getCentralRoutersByBank/1
+```
+
+### Summary of `curl` Requests
+
+1. **Add a Bank**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"bank_name": "Bank One"}' http://localhost:9299/addBank
+   ```
+
+2. **Update a Bank**:
+   ```sh
+   curl -X PUT -H "Content-Type: application/json" -d '{"bank_id": "1", "new_bank_name": "Updated Bank One"}' http://localhost:9299/updateBank
+   ```
+
+3. **Add a Central Router by Bank ID**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"central_router_name": "Central Router One", "bank_id": "1"}' http://localhost:9299/addCentralRouterByBankId
+   ```
+
+4. **Add a Central Router by Bank Name**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"central_router_name": "Central Router Two", "bank_name": "Bank One"}' http://localhost:9299/addCentralRouterByBankName
+   ```
+
+5. **Update a Central Router**:
+   ```sh
+   curl -X PUT -H "Content-Type: application/json" -d '{"central_router_id": "1", "new_central_router_name": "Updated Central Router One"}' http://localhost:9299/updateCentralRouter
+   ```
+
+6. **Add a Voice Port by Central Router ID**:
+   ```sh
+   curl -X POST -H "Content-Type: application/json" -d '{"voice_port_name": "Voice Port One", "central_router_id": "1", "broker_id": "1", "admin_status": "active", "input_gain": 10, "output_attenuation": 5, "operational_status": "operational", "description": "Main voice port"}' http://localhost:9299/addVoicePortByCentralRouterId
+   ```
+
+7. **Update a Voice Port**:
+   ```sh
+   curl -X PUT -H "Content-Type: application/json" -d '{"voice_port_id": "1", "new_voice_port_name": "Updated Voice Port One", "broker_id": "1", "admin_status": "inactive", "input_gain": 15, "output_attenuation": 10, "operational_status": "non-operational", "description": "Updated description"}' http://localhost:9299/updateVoicePort
+   ```
+
+8. **Get Bank by ID**:
+   ```sh
+   curl http://localhost:9299/getBank/1
+   ```
+
+9. **Get Bank by Name**:
+   ```sh
+   curl http://localhost:9299/getBankByName/Bank%20One
+   ```
+
+10. **Get Central Router by ID**:
+    ```sh
+    curl http://localhost:9299/getCentralRouter/1
+    ```
+
+11. **Get Central Router by Name**:
+    ```sh
+    curl http://localhost:9299/getCentralRouterByName/Central%20Router%20One
+    ```
+
+12. **Get Voice Port by ID**:
+    ```sh
+    curl http://localhost:9299/getVoicePort/1
+    ```
+
+13. **Get Voice Port by Name**:
+    ```sh
+    curl http://localhost:9299/getVoicePortByName/Voice%20Port%20One
+    ```
+
+14. **Get Voice Ports by Central Router ID**:
+    ```sh
+    curl http://localhost:9299/getVoicePortsByCentralRouter/1
+    ```
+
+15. **Get Voice Ports by Central Router ID and Broker ID**:
+    ```sh
+    curl http://localhost:9299/getVoicePortsByCentralRouterAndBroker/1/1
+    ```
+
+16. **Get Central Routers by Bank ID**:
+    ```sh
+    curl http://localhost:9299/getCentralRoutersByBank/1
+    ```
+
+These `curl` requests cover all the routes in the `bank_central_router_service.py` file. You can use these commands to interact with the `BankCentralRouterManager` service running on `http://0.0.0.0:9299`.Get All Banks
+
+
+Endpoint: /getAllBanks
+Method: GET
+
+
+sh
+Copy
+curl http://localhost:9299/getAllBanks
+
+
+/getCentralRoutersByBankName/<bankName>
+curl http://localhost:9299/getCentralRoutersByBankName/banco1
+
+
+
+
+        python createBrokersFromFile.py
+ 1058  curl http://localhost:9099/getAllBrokers
+ 1059  python createUsersFromFile.py
+ 1060  python createBanksFromFile.py
+ 1061  curl http://localhost:9299/getAllBanks
+ 1062  python createRoutersFromFile.py
+ 1064  curl http://localhost:9299/getCentralRoutersByBankName/Banco1\n
+ 1065  curl http://localhost:9299/getCentralRoutersByBankName/Banco2
+
+
+ python createVoicePortsFromFileWithIds.py
+ curl http://localhost:9299/getVoicePortsByCentralRouter/1
+
+curl -X DELETE http://localhost:9299/removeAllVoicePortsByCentralRouter/1
+
+curl -X POST http://localhost:9299/updateVoicePortFromRouter/1 -H "Content-Type: application/json"
+
+curl -X POST http://localhost:9299/saveVoicePortToRouter -H "Content-Type: application/json" -d '{
+    "central_router_id": "1",
+    "voice_port_id": "57",
+    "input_gain": "2",
+    "output_attenuation": "-2",
+    "port_name": "0/2/2",
+    "admin_status": "up",
+    "broker_id": "3",
+    "description": "SIF pto 4"
+}'
+
+
+create a front-end project based on angular, to create a user interface, firt get the User List from the BrokerUserManager service, consuming the BrokerUserManager api getAllUsers
+

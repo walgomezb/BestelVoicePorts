@@ -1,0 +1,19 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY requirements.txt /app
+COPY ./src/BrokerUserManager.py /app
+COPY ./src/brockerUserApi.py /app 
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 9299 available to the world outside this container
+EXPOSE 9099
+
+# Run bank_central_router_service.py when the container launches
+CMD ["python", "brockerUserApi.py"]

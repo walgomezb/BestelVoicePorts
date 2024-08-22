@@ -1,0 +1,13 @@
+Flask
+Flask-Cors
+Jinja2
+numpy
+openpyxl
+pandas
+python-dateutil
+pytz
+redis
+requests
+six
+tzdata
+urllib3

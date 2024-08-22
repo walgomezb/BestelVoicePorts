@@ -1,0 +1,43 @@
+
+services:
+  redis:
+    image: redis
+    container_name: redis-container
+    volumes:
+      - ./Redis/data:/data
+      - ./Redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    ports:
+      - "6379:6379"
+
+  bank_central_router_manager:
+      build:
+        
+        dockerfile: DockerfileBankCentralRouterManager
+      container_name: bank_central_router_manager
+      depends_on:
+        - redis
+      ports:
+        - "9299:9299"
+      environment:
+        - REDIS_HOST=redis
+        - REDIS_PORT=6379
+
+  broker_user_manager:
+    build:
+      
+      dockerfile: DockerfileUserManager
+    container_name: broker_user_manager
+    depends_on:
+      - redis
+    ports:
+      - "9099:9099"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  jobrunner:
+    image: ansible-flask-app
+    container_name: jobrunner
+    ports:
+      - "9999:5000"
