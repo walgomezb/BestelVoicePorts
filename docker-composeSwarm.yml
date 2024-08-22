@@ -12,10 +12,9 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
-
   bank_central_router_manager:
       build:
-        image: wagomez087/bank_central_router_manager
+        image: wagomez087/bank_central_router_manager:latest
       depends_on:
         - redis
         - jobrunner
