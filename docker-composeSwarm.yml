@@ -29,9 +29,7 @@ services:
           condition: on-failure
 
   broker_user_manager:
-    build:
-      context: ../BestelVoicePorts
-      dockerfile: DockerfileUserManager
+    image: broker_user_manager:latest
     depends_on:
       - redis
     ports:
