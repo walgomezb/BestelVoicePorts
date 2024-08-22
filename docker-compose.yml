@@ -12,7 +12,7 @@ services:
 
   bank_central_router_manager:
       build:
-        context: ./BestelVoicePorts
+        context: ../BestelVoicePorts
         dockerfile: DockerfileBankCentralRouterManager
       container_name: bank_central_router_manager
       depends_on:
@@ -26,7 +26,7 @@ services:
 
   broker_user_manager:
     build:
-      context: ./BestelVoicePorts
+      context: ../BestelVoicePorts
       dockerfile: DockerfileUserManager
     container_name: broker_user_manager
     depends_on:
