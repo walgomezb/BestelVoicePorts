@@ -419,3 +419,92 @@ docker stack deploy -c docker-composeSwarm.yml bestelvoiceportsdemo
 docker stack rm bestelvoiceportsdemo
 
 docker service ls
+
+
+/getUserByName/user2
+/getBroker/2
+
+/getAllBanks
+/getCentralRoutersByBank/1   /getVoicePortsByCentralRouterAndBroker/1/2
+
+
+
+1. curl http://67.207.82.98:9099/getUserByName/user2
+
+{
+  "broker_id": "2",
+  "id": "2",
+  "name": "user2",
+  "pass": "zzzz"
+}
+
+2. curl http://67.207.82.98:9099//getBroker/2
+
+{
+  "id": "2",
+  "name": "REMATE"
+}
+
+3. curl http://67.207.82.98:9299/getAllBanks
+[
+  {
+    "id": "2",
+    "name": "Banco2"
+  },
+  {
+    "id": "1",
+    "name": "Banco1"
+  },
+  {
+    "id": "2",
+    "name": "Banco2"
+  },
+  {
+    "id": "1",
+    "name": "Banco1"
+  }
+]
+
+4. Del Banco Seleccionado: curl http://67.207.82.98:9299/getCentralRoutersByBank/1
+[
+  {
+    "bank_id": "1",
+    "brand": "CISCO",
+    "id": "1",
+    "ip": "201.148.0.101",
+    "login": "z3qu3nC@ct1",
+    "model": "ISR4321",
+    "name": "ISR4321/K9 Central",
+    "pass": "aaaaa"
+  }
+]
+
+
+5. curl http://67.207.82.98:9299/getVoicePortsByCentralRouterAndBroker/1/2
+[
+  {
+    "admin_status": "no shutdown",
+    "broker_id": "2",
+    "central_router_id": "1",
+    "description": "REMATE pto 6",
+    "id": "73",
+    "input_gain": "3",
+    "name": "0-2-0",
+    "operational_status": "",
+    "output_attenuation": "1"
+  }
+]
+
+
+6. Salvar 
+
+curl -X POST http://67.207.82.98:9299/saveVoicePortToRouter -H "Content-Type: application/json" -d '{
+    "central_router_id": "1",
+    "voice_port_id": "57",
+    "input_gain": "2",
+    "output_attenuation": "-2",
+    "port_name": "0/2/2",
+    "admin_status": "up",
+    "broker_id": "3",
+    "description": "SIF pto 4"
+}'
