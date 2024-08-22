@@ -12,7 +12,6 @@ services:
 
   bank_central_router_manager:
       build:
-        
         dockerfile: DockerfileBankCentralRouterManager
       container_name: bank_central_router_manager
       depends_on:
@@ -25,7 +24,6 @@ services:
 
   broker_user_manager:
     build:
-      
       dockerfile: DockerfileUserManager
     container_name: broker_user_manager
     depends_on:
