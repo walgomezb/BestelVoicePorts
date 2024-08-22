@@ -2,7 +2,6 @@ version: '3.3'
 services:
   redis:
     image: redis
-    container_name: redis-container
     volumes:
       - ./Redis/data:/data
       - ./Redis/redis.conf:/usr/local/etc/redis/redis.conf
@@ -18,7 +17,6 @@ services:
       build:
         context: ../BestelVoicePorts
         dockerfile: DockerfileBankCentralRouterManager
-      container_name: bank_central_router_manager
       depends_on:
         - redis
         - jobrunner
@@ -36,7 +34,6 @@ services:
     build:
       context: ../BestelVoicePorts
       dockerfile: DockerfileUserManager
-    container_name: broker_user_manager
     depends_on:
       - redis
     ports:
@@ -51,7 +48,6 @@ services:
 
   jobrunner:
     image: ansible-flask-app
-    container_name: jobrunner
     ports:
       - "9999:5000"
     deploy:
