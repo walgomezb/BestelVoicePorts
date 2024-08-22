@@ -29,7 +29,7 @@ services:
           condition: on-failure
 
   broker_user_manager:
-    image: broker_user_manager:latest
+    image: wagomez087/broker_user_manager:latest
     depends_on:
       - redis
     ports:
