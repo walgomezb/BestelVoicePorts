@@ -2,8 +2,8 @@ import redis
 import requests, json
 
 
-JOBRUNNER_HOST = "192.168.68.113"
-JOBRUNNER_HOST = "jobrunner"
+# JOBRUNNER_HOST = "192.168.68.113"
+JOBRUNNER_HOST = "bestelvoiceportsdemo_jobrunner"
 
 
 class BankCentralRouterManager:
@@ -179,6 +179,8 @@ class BankCentralRouterManager:
         password = "Onbo@rd1NG#0ToUcH2024"
 
         url = "http://"+JOBRUNNER_HOST+":9999/get_voice_ports"
+
+        
         headers = {"Content-Type": "application/json"}
         payload = {"target_ip": ip, "username": username, "password": password}
 

@@ -43,7 +43,7 @@ services:
           condition: on-failure
 
   jobrunner:
-    image: ansible-flask-app
+    image: wagomez087/ansible-flask-app:latest
     ports:
       - "9999:5000"
     deploy:
