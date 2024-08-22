@@ -17,6 +17,7 @@ services:
       container_name: bank_central_router_manager
       depends_on:
         - redis
+        - jobrunner
       ports:
         - "9299:9299"
       environment:
